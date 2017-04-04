@@ -2,7 +2,14 @@ import React, {Component} from 'react';
 
 const AddEditUsers = () => {
     return (
-        <h1>With Great Power Comes Great Responsibility</h1>
+        <div>
+            <h1>
+                With Great Power Comes Great Responsibility
+            </h1>
+            <h2>
+                More features will be added soon!
+            </h2>
+        </div>
     )
 }
 
