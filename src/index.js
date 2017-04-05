@@ -28,7 +28,7 @@ function requireAuth(nextState, replace) {
 }
 
 
-var books =  new Bookstore().books;
+
 ReactDOM.render((
     <Router history={hashHistory}>
         <Route path="/" component={App}>
@@ -36,10 +36,8 @@ ReactDOM.render((
             <Route path="home" component={Home}/>
             <Route path="documentation" component={Documentation}/>
             <Route path="products" component={Products}/>
-            <Route path="bookstore" component={Products}
-                   books={books}/>
             <Route path="products/details/:id" component={Details}
-                   books={books}/>
+                   books={Bookstore.books}/>
             <Route path="company" component={Company}/>
             <Route path="addeditbooks" component={AddEditBooks}/>
             <Route path="addeditusers" component={AddEditUsers}/>

@@ -3,7 +3,7 @@
 class bookstore {
 
     constructor() {
-        this._books =
+        this._books =[
             {title: "How to Learn JavaScript - Vol 1", info: "Study hard"}
             , {title: "How to Learn ES6", info: "Complete all exercises :-)"}
             , {
@@ -15,7 +15,7 @@ class bookstore {
             info: "Don't drink beers, until Friday (after four)",
             moreInfo: "5 Points = 5 beers ;-)"
         }
-
+]
 
     }
 
@@ -23,4 +23,4 @@ class bookstore {
         return this._books;
     }
 }
-export default bookstore;
+export default new bookstore();
