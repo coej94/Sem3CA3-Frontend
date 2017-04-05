@@ -7,7 +7,6 @@ import {useStrict} from "..//stores/useStrict"
 
 const App = observer(class App extends Component {
 
-
     render() {
         const logInStatus = auth.loggedIn ? "Logged in as: " + auth.userName : "";
         return (
@@ -15,12 +14,15 @@ const App = observer(class App extends Component {
                 <nav className="navbar navbar-default">
                     <div className="container-fluid">
                         <div className="navbar-header">
-                            <a className="navbar-brand" href="#">My Project</a>
+                            <a className="navbar-brand" href="#">CA3 Group5</a>
                         </div>
                         <ul className="nav navbar-nav">
-                            <li><Link to="/about">About</Link></li>
-                            {auth.isUser ? <li><Link to="/user">Page for Users </Link></li> : null}
-                            {auth.isAdmin ? <li><Link to="/admin">Page for Admins </Link></li> : null}
+                            <li><Link to="/home">Home</Link></li>
+                            <li><Link to="/documentation">Documentation</Link></li>
+                            <li><Link to="/products">Products</Link></li>
+                            <li><Link to="/company">Company</Link></li>
+                            {auth.isUser ? <li><Link to="/addeditbooks">Add/Edit Books</Link></li> : null}
+                            {auth.isAdmin ? <li><Link to="/addeditusers">Add/Edit Users</Link></li> : null}
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
                             <li className="navbar-text" style={{color: "steelBlue"}}>{logInStatus}</li>
