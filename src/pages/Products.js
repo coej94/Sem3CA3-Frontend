@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-
 var Products = () => {
     return(
         <div>
-            <h1>Products will appear here soon!</h1>
+            <h1>Books available</h1>
+
         </div>
     )
 }
