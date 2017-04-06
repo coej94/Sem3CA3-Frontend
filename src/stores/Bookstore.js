@@ -1,26 +1,54 @@
+import {computed, observable, action} from "mobx";
+import fetchHelper from "./fetchHelpers";
+const URL = require("../../package.json").serverURL;
 
 
-class bookstore {
+class Bookstore {
+    @observable messageFromServer = "";
+    @observable errorMessage = "";
+    @observable books = [];
 
-    constructor() {
-        this._books =[
-            {title: "How to Learn JavaScript - Vol 1", info: "Study hard"}
-            , {title: "How to Learn ES6", info: "Complete all exercises :-)"}
-            , {
-            title: "How to Learn React",
-            info: "Complete all your CA's", moreInfo: ""
-        }
-            , {
-            title: "How to become a specialist in Computer Science - Vol 4",
-            info: "Don't drink beers, until Friday (after four)",
-            moreInfo: "5 Points = 5 beers ;-)"
-        }
-]
 
+
+    @action
+    setErrorMessage = (err) => {
+        this.errorMessage = err;
     }
 
-    get books() {
+    @action
+    getData = () => {
+        this.errorMessage = "";
+        this.messageFromServer = "";
+        this.books = [];
+        let errorCode = 200;
+        const options = fetchHelper.makeOptions("GET", true);
+        fetch(URL + "api/Book", options)
+            .then((res) => {
+                if (res.status > 210 || !res.ok) {
+                    errorCode = res.status;
+                }
+                return res.json();
+            })
+            .then(action((res) => {  //Note the action wrapper to allow for useStrict
+                if (errorCode !== 200) {
+                    throw new Error(`${res.error.message} (${res.error.code})`);
+                }
+                else {
+                    this.books.replace(res);
+                }
+            })).catch(err => {
+            //This is the only way (I have found) to verify server is not running
+            this.setErrorMessage(fetchHelper.addJustErrorMessage(err));
+        })
+    }
+    @computed get books() {
         return this._books;
     }
 }
-export default new bookstore();
+
+let bookstore = new Bookstore();
+
+//Only for debugging
+//window.userStore = userStore;
+export default bookstore;
+
