@@ -44,12 +44,11 @@ class Bookstore {
     }
 
     @action
-    addBook = () => {
+    addBook = (book) => {
         this.errorMessage = "";
         this.messageFromServer = "";
-        this.books = [];
         let errorCode = 200;
-        const options = fetchHelper.makeOptions("POST", true);
+        const options = fetchHelper.makeOptions("POST", true, book);
         fetch(URL + "api/Book", options)
             .then((res) => {
                 if (res.status > 210 || !res.ok) {
@@ -62,7 +61,7 @@ class Bookstore {
                     throw new Error(`${res.error.message} (${res.error.code})`);
                 }
                 else {
-                    this.books.replace(res);
+                    this.book.replace(res);
                 }
             })).catch(err => {
             //This is the only way (I have found) to verify server is not running

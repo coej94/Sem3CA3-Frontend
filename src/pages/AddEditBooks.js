@@ -19,10 +19,28 @@ class AddEditBooks extends Component {
         }
     }
 
-    saveBook = () => {
+    handleChange = (event) => {
+        let id = event.target.id;
+        let book = this.state.book;
+        if(id === "title"){
+            book.title=event.target.value;
+        }
+        if(id === "info"){
+            book.info=event.target.value;
+        }
+        if(id === "moreInfo"){
+            book.moreInfo=event.target.value;
+        }
+        this.setState({book: book})
+
+    }
+
+    saveBook = (event) => {
+        event.preventDefault();
         let book = this.state.book;
         bookstore.addBook(book);
     }
+
 
     render(){
     return(
@@ -31,18 +49,19 @@ class AddEditBooks extends Component {
             < form action="#" >
                 <div className="form-group">
                 <label htmlFor="title">Title</label>
-                    <input type="Text" className="form-control" id="title" required/>
+                    <input onChange={this.handleChange} type="Text" className="form-control" id="title" required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="info">Info</label>
-                    <input type="info" className="form-control" id="info" required/>
+                    <input onChange={this.handleChange} type="info" className="form-control" id="info" required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="title">More Info</label>
-                    <input type="Text" className="form-control" id="title" required/>
+                    <input onChange={this.handleChange} type="Text" className="form-control" id="moreInfo" required/>
                 </div>
                 <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={this.saveBook}>Add/Edit</button>
             </form >
+            <p>{JSON.stringify(this.state.book)}</p>
         </div>
     )}
 }
