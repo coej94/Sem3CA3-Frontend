@@ -8,6 +8,9 @@ class Bookstore {
     @observable errorMessage = "";
     @observable books = [];
 
+    constructor(){
+        this.getData();
+    }
 
 
     @action
@@ -34,7 +37,6 @@ class Bookstore {
                     throw new Error(`${res.error.message} (${res.error.code})`);
                 }
                 else {
-
                     this.books.replace(res);
                 }
             })).catch(err => {
