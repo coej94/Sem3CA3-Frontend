@@ -25,18 +25,11 @@ class Products extends Component {
                 <p></p>
                 <h2>Our Products</h2>
                 <h4>All our great books </h4>
-                <h1></h1>
+
                 <ul>
-<<<<<<< HEAD
-                    {bookstore.books.map((book, index) => {
-                        return(  <li key={index}>{book.title}
-                                <Link to={`details/${index}`}> (details)</Link>
-                            </li>
-                        )})}
-=======
 
                     {thelist}
->>>>>>> 6b6610cdcaec9339b166c6426e501fccb6f3c274
+
 
                 </ul>
             </div>)
