@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {observer} from "mobx-react";
+import { Link } from 'react-router'
 import bookstore from "../stores/Bookstore";
+
 
 @observer
 class Products extends Component {
@@ -16,9 +18,10 @@ class Products extends Component {
 
     render() {
 
-       var thelist = bookstore.books.map(function (books) {
-            return (<li> {books.title} </li>)
+       var thelist = bookstore.books.map(function (book) {
+            return (<li key={book.id}> {book.title} <Link to={`products/details/${book.id}`}>(details)</Link></li>)
         })
+
 
         return (
             <div>
