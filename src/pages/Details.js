@@ -1,6 +1,14 @@
 /**
  * Created by Staal on 05/04/2017.
  */
+
+
+let bookstore = new Bookstore();
+
+//Only for debugging
+//window.userStore = userStore;
+export default bookstore;
+
 import React from "react";
 
 class Details extends React.Component {
