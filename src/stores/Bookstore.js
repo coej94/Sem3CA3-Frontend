@@ -1,4 +1,4 @@
-import {computed, observable, action} from "mobx";
+import {observable, action} from "mobx";
 import fetchHelper from "./fetchHelpers";
 const URL = require("../../package.json").serverURL;
 
@@ -34,15 +34,13 @@ class Bookstore {
                     throw new Error(`${res.error.message} (${res.error.code})`);
                 }
                 else {
+                    console.log("hej")
                     this.books.replace(res);
                 }
             })).catch(err => {
             //This is the only way (I have found) to verify server is not running
             this.setErrorMessage(fetchHelper.addJustErrorMessage(err));
         })
-    }
-    @computed get books() {
-        return this._books;
     }
 }
 

@@ -17,11 +17,12 @@ class Products extends Component {
     render() {
 
        var thelist = bookstore.books.map(function (books) {
-            (<li> {books.title} </li>)
+            return (<li> {books.title} </li>)
         })
 
         return (
             <div>
+                <p></p>
                 <h2>Our Products</h2>
                 <h4>All our great books </h4>
                 <h1></h1>
