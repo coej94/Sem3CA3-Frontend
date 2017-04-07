@@ -28,10 +28,11 @@ class Products extends Component {
                 <p></p>
                 <h2>Our Products</h2>
                 <h4>All our great books </h4>
-                <h1></h1>
+
                 <ul>
 
                     {thelist}
+
 
                 </ul>
             </div>)
