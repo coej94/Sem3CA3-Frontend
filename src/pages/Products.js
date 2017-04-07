@@ -9,12 +9,12 @@ class Products extends React.Component {
                 <h2>Our Products</h2>
                 <h4>All our great books </h4>
                 <ul>
-                    /*{bookstore.books.map((book, index) => {
-                      return(  <li key={index}>{book.title}
-                            <Link to={`details/${index}`}> (details)</Link>
-                        </li>
-                      )})}
-*/                  <li>hej</li>
+                    {bookstore.books.map((book, index) => {
+                        return(  <li key={index}>{book.title}
+                                <Link to={`details/${index}`}> (details)</Link>
+                            </li>
+                        )})}
+
                 </ul>
             </div>)
     }

@@ -10,15 +10,15 @@ var AddEditBooks = () => {
             <h1>Add/Edit Book</h1>
             < form action="#" >
                 <div className="form-group">
-                <label for="title">Title</label>
+                <label htmlFor="title">Title</label>
                     <input type="Text" className="form-control" id="title" required/>
                 </div>
                 <div className="form-group">
-                    <label for="info">Info</label>
+                    <label htmlFor="info">Info</label>
                     <input type="info" className="form-control" id="info" required/>
                 </div>
                 <div className="form-group">
-                    <label for="title">More Info</label>
+                    <label htmlFor="title">More Info</label>
                     <input type="Text" className="form-control" id="title" required/>
                 </div>
                 <button className="btn btn-lg btn-primary btn-block" type="submit">Add/Edit</button>
