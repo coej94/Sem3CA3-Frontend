@@ -13,7 +13,7 @@ import Login from "./pages/Login";
 import Logout from "./pages/Logout";
 import UserPage from "./pages/UserPage";
 import AdminPage from "./pages/AdminPage";
-import Details from "./pages/Products"
+import Details from "./pages/Details"
 import Bookstore from "./stores/Bookstore";
 import auth from "./authorization/auth";
 
@@ -40,6 +40,8 @@ ReactDOM.render((
             <Route path="products/details/:id" component={Details}
                    books={Bookstore.books}/>
             <Route path="company" component={Company}/>
+            <Route path="details" component={Details}
+                   books={Bookstore.books}/>
             <Route path="addeditbooks" component={AddEditBooks}/>
             <Route path="addeditusers" component={AddEditUsers}/>
             <Route path="login" component={Login}/>

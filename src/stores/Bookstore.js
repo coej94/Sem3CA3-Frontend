@@ -34,7 +34,7 @@ class Bookstore {
                     throw new Error(`${res.error.message} (${res.error.code})`);
                 }
                 else {
-                    console.log("hej")
+
                     this.books.replace(res);
                 }
             })).catch(err => {
